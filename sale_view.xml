@@ -1,0 +1,29 @@
+<openerp>
+<data>
+
+	<record id="agaplan_sale_order_tree" model="ir.ui.view">
+		<field name="name">agaplan.sale.order.tree</field>
+		<field name="model">sale.order</field>
+		<field name="type">tree</field>
+		<field name="inherit_id" ref="sale.view_order_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='invoiced_rate']" position="after">
+				<field name="pay_before_confirm"/>
+			</xpath>
+		</field>
+	</record>
+
+	<record id="agaplan_sale_order_form" model="ir.ui.view">
+		<field name="name">agaplan.sale.order.form</field>
+		<field name="model">sale.order</field>
+		<field name="type">form</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='fiscal_position']" position="after">
+				<field name="pay_before_confirm" attrs="{'readonly': [('state','!=','draft')]}"/>
+			</xpath>
+		</field>
+	</record>
+
+</data>
+</openerp>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+
+	<record id="sale.trans_draft_router" model="workflow.transition">
+		<field name="condition">allow_confirm()</field>
+	</record>
+
+</data>
+</openerp>
